@@ -11,8 +11,11 @@ Static site: `index.html`, `style.css`, `app.js`, and `data/`:
 - `data/interurban.geojson`: interurban reference lines (PRL&P, Oregon Electric, United Railways), not ICC-valued
 - `data/oregon.geojson`: state outline (Natural Earth, public domain)
 
-`build_data.py` regenerates `data/` from the project's section GeoJSON and NARA join.
+`build_data.py` regenerates `data/` from the project's section GeoJSON and NARA join
+(`ICC_PROJECT=/path/to/project python3 build_data.py`; needs shapely).
 
 Geometry is index-level: approximate stations snapped to known track. Track guides: © OpenStreetMap
 contributors (ODbL), ODOT TransGIS rail network, and Forgotten Lands, Places and Transit
 "Abandoned & Out-of-Service Railroad Lines" (non-commercial use with attribution).
+
+Live at https://anthonyblackham.com/oregon-icc-valuation-index/
