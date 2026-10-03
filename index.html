@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oregon Valuation Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Oregon ICC Valuation Sections</h1>
+    <small>Original valuation, 1915–1920 · NARA RG 134</small>
+    <button class="about-b" id="aboutB">About</button>
+  </header>
+  <main>
+    <aside class="idx" aria-label="Master index">
+      <div class="idx-tools">
+        <label for="filed">Filed under (NARA)<select id="filed"><option value="">All railroads</option></select></label>
+        <label for="q">Find<input id="q" type="search" placeholder="Station, section, bundle"></label>
+        <label class="tog" for="iu"><input type="checkbox" id="iu"> Show interurban lines <span>PRL&amp;P, Oregon Electric, United Rys.</span></label>
+        <div class="count" id="count"></div>
+      </div>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Section</th><th>Line</th><th class="n">Bundle</th><th class="n">VS</th><th><span class="vh">Info</span></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="idx-foot">Grouped and coloured by the railroad NARA files the bundle under. Section prefixes follow the 1916 index.</div>
+    </aside>
+    <div class="mapwrap">
+      <svg id="map" role="img" aria-label="Map of Oregon valuation sections"></svg>
+      <div class="zoom"><button id="zi" aria-label="Zoom in">+</button><button id="zo" aria-label="Zoom out">−</button><button id="zr" aria-label="Reset view">⌂</button></div>
+      <div class="key"><span><i class="k1"></i>No track found, drawn straight</span><span id="kIU" hidden><i class="k2"></i>Interurban, not ICC-valued</span></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+  </main>
+</div>
+<dialog id="about">
+  <h2>Oregon ICC Valuation Index</h2>
+  <p>A map index to the original Interstate Commerce Commission railroad valuation maps for Oregon (1915–1920). Each line is one valuation section as drawn on the 1916 ICC index maps, tagged with the railroad prefix used there (for example O&amp;C-5).</p>
+  <p><b>Getting the maps.</b> The originals are in Record Group 134 at the National Archives at College Park, Maryland (Cartographic). A pull request needs the railroad name, valuation section, state and NARA bundle number; sheet numbers and shelf locations come from NARA staff. Use the copy button in a section's details.</p>
+  <p><b>How sections are grouped.</b> The index is grouped by the railroad NARA files the bundle under. Some roads are filed under a parent company: Oregon &amp; California, Central Pacific and Beaverton &amp; Willsburg sections are in Southern Pacific bundles.</p>
+  <p><b>Accuracy.</b> Lines are index-level: drawn between approximate stations and snapped to known track. They locate a section, not its exact alignment. Interurban lines are a separate reference layer and were not part of the ICC valuation series indexed here.</p>
+  <p><b>Sources.</b> 1916 ICC valuation index maps; NARA RG 134 railroad valuation maps finding aid (2015); 1964 Southern Pacific valuation index (naming reference). Track geometry guided by © OpenStreetMap contributors (ODbL), ODOT TransGIS rail network, and Forgotten Lands, Places and Transit "Abandoned &amp; Out-of-Service Railroad Lines". State outline: Natural Earth.</p>
+  <form method="dialog"><button>Close</button></form>
+</dialog>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
